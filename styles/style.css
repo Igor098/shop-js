@@ -1,0 +1,76 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 24px;
+}
+
+.add {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: crimson;
+    width: 100%;
+    height: 24px;
+}
+
+.show {
+    display: block;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #000;
+}
+
+.card__image {
+    width: 100%;
+    height: auto;
+}
+
+.card__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.card__title {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.card__description {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.card__btn-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+}
+
+.card__btn {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.card__more {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #000;
+}
