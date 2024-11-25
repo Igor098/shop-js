@@ -1,21 +1,87 @@
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 24px;
+@import "./normalize.css";
+@import "./global.css";
+
+
+.top-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
 }
 
-.add {
-    display: none;
+.search__container {
+    position: relative;
+    width: min-content;
+    display: flex;
+    align-items: center;
+}
+
+.search__btn {
     position: absolute;
-    top: 0;
-    left: 0;
-    background-color: crimson;
-    width: 100%;
-    height: 24px;
+    right: 8px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    background: url(../images/search.svg) no-repeat;
+    background-size: contain;
 }
 
-.show {
+.search__input {
     display: block;
+    height: 24px;
+    padding: 0 24px;
+    color: var(--primary-text-color);
+    font-size: 16px;
+    font-weight: 400;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: 2px solid var(--color-light-gray);
+    border-radius: 6px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.search__input::placeholder {
+    color: var(--color-gray);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.search__input:focus {
+    color: var(--primary-text-color);
+    background-color: transparent;
+    border-color: var(--color-light-gray);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+}
+
+.cart-btn-wrapper {
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+
+.cart-btn-wrapper_pos {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-btn__btn {
+    width: 24px;
+    height: 24px;
+    background: url(../images/cart.svg) no-repeat;
+    background-size: contain;
+}
+
+.cart-btn__count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    padding: 1px 3px;
+    background-color: var(--color-light-gray);
+    border-radius: 50%;
+    font-size: 10px;
 }
 
 .card {
@@ -23,35 +89,46 @@
     width: 100%;
     max-width: 300px;
     max-height: 500px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.card-content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    border: 1px solid #000;
 }
 
 .card__image {
     width: 100%;
     height: auto;
+    max-height: 170px;
+    object-fit: fill;
+    margin-bottom: 20px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .card__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .card__title {
-    font-family: "Roboto", sans-serif;
     font-size: 24px;
     font-weight: 500;
+    margin-bottom: 20px;
 }
 
 .card__description {
-    font-family: "Roboto", sans-serif;
+    color: var(--secondary-text-color);
     font-size: 16px;
     font-weight: 400;
+    text-align: center;
 }
 
 .card__btn-wrapper {
@@ -59,18 +136,166 @@
     flex-direction: row;
     align-items: center;
     gap: 12px;
-    padding: 8px;
+    padding: 20px;
 }
 
-.card__btn {
-    font-family: "Roboto", sans-serif;
+.card__btn_style_normal {
+    color: var(--color-white);
+    background-color: var(--color-blue);
+    padding: 8px 16px;
+    border-radius: 4px;
     font-size: 14px;
     font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.card__btn_style_normal:hover {
+    background-color: var(--color-light-blue);
+}
+
+.card__btn_style_normal:active {
+    background-color: var(--color-dark-blue);
+}
+
+.card__btn_style_normal:focus {
+    outline: 1px solid var(--color-light-blue);
+    outline-offset: 2px;
+}
+
+.card__btn_style_normal:disabled {
+    background-color: var(--color-light-gray);
+}
+
+.card__btn_style_easy {
+    color: var(--primary-text-color);
+    padding: 4px 16px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .card__more {
-    font-family: "Roboto", sans-serif;
+    position: relative;
+    color: var(--secondary-text-color);
     font-size: 14px;
     font-weight: 500;
-    border: 1px solid #000;
+    transition: color 0.2s ease-in-out;
 }
+
+.card__more::after {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: var(--color-dark-blue);
+    transition: width 0.2s ease-in-out;
+}
+
+.card__more:hover::after {
+    width: 100%;
+    height: 2px;
+}
+
+.card__more:hover {
+    color: var(--color-dark-blue);
+}
+
+.cart__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--light-color);
+    border-radius: 6px;
+}
+
+.cart {
+    position: fixed;
+    height: 70vh;
+    width: 650px;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    border: none;
+    padding: 0;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.cart__wrapper {
+    position: relative;
+    display: grid;
+    row-gap: 16px;
+}
+
+.cart__item {
+    display: grid;
+    grid-template-columns: 120px 1fr 120px 32px;
+    grid-column-gap: 8px;
+    padding: 20px;
+    border-bottom: 2px solid var(--color-light-gray);
+}
+
+.cart__image {
+    width: 100%;
+    max-height: 100%;
+    max-width: 150px;
+    object-fit: contain;
+}
+
+.cart__desc {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cart__name {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.cart__supplier {
+    color: var(--secondary-text-color);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.cart__characters {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart__price {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.cart__edit {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.scroll-lock {
+    overflow: hidden;
+}
+
+

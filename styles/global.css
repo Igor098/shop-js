@@ -1,0 +1,87 @@
+html{
+    box-sizing:border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+a {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+body {
+    color: var(--primary-text-color);
+    min-width: 320px;
+    min-height: 100vh;
+    word-break: normal;
+    font-family: "Open Sans", sans-serif;
+}
+
+dialog::backdrop {
+    background-color: rgb(0 0 0 / 0.8);
+}
+
+:root {
+    --color-white: #FFF;
+    --primary-text-color: #1C1C1C;
+    --secondary-text-color: #333;
+    --color-blue: #3172B9;
+    --color-light-blue: #71A7E2;
+    --color-dark-blue: #0E3B6C;
+    --color-light-gray: #C4C4C4;
+    --color-gray: #787878;
+    --light-color: #E4E4E4;
+    --border-color: #DADADA;
+}
+
+/* global */
+
+.list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.btn-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.noscroll {
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-columns: max-content;
+    grid-auto-rows: max-content;
+    grid-gap: 48px;
+    justify-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
